@@ -27,7 +27,7 @@ CSRF_TRUSTED_ORIGINS = ['https://smart-shoping-whb0.onrender.com','https://*.127
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
+    'corsheaders',  # corsheaders added
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework', 
     'account',
+    'Organization',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',   #add new
+    'corsheaders.middleware.CorsMiddleware',   # corsheaders middleware added.
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -162,7 +163,10 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=20),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 
+
     'AUTH_HEADER_TYPES': ('Bearer',),
+    
+    
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',

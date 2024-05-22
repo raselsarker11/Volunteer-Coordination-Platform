@@ -38,22 +38,18 @@ class UserLoginSerializer(serializers.ModelSerializer):
 
 # user profile serializers
 class UserProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-      model = User
-      fields = ['id', 'email', 'name']
+  class Meta:
+    model = User
+    fields = ['id', 'name', 'bio']
     
     
-# class UserProfileSerializer(serializers.ModelSerializer):
-#   class Meta:
-#     model = User
-#     fields = ['id', 'name', 'profile_image', 'bio']
-    
-    
-# user profile serializers
+# user my-profile serializers
 class UserProfileUploadSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ['id', 'name', 'profile_image', 'bio']
+    fields = ['id', 'name', 'bio']
+
+
 
 class UserChangePasswordSerializer(serializers.Serializer):
   password = serializers.CharField(max_length=255, style={'input_type':'password'}, write_only=True)
@@ -70,6 +66,8 @@ class UserChangePasswordSerializer(serializers.Serializer):
     user.set_password(password)
     user.save()
     return attrs
+
+
 
 class SendPasswordResetEmailSerializer(serializers.Serializer):
   email = serializers.EmailField(max_length=255)
@@ -97,6 +95,8 @@ class SendPasswordResetEmailSerializer(serializers.Serializer):
       return attrs
     else:
       raise serializers.ValidationError('You are not a Registered User')
+
+
 
 class UserPasswordResetSerializer(serializers.Serializer):
   password = serializers.CharField(max_length=255, style={'input_type':'password'}, write_only=True)
