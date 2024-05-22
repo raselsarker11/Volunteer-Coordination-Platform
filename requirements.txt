@@ -159,7 +159,6 @@ python3-openid
 pyttsx3
 pytweening
 pytz
-pywin32
 pywinpty
 PyYAML
 pyzbar
