@@ -21,7 +21,8 @@ DEBUG = True
 
 # csrf trusted origin added
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://smart-shoping-whb0.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'https://*.127.0.0.1']
+
 
 
 # Application definition
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'VolunteerVision.urls'
 
 #cors origin added
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ['https://smart-shoping-whb0.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
 
 
 
@@ -90,11 +91,27 @@ DATABASES = {
 }
 
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env("DB_NAME"),
+#         'USER': env("DB_USER"),
+#         'PASSWORD': env("DB_PASSWORD"),
+#         'HOST': env("DB_HOST"),
+#         'PORT': env("DB_PORT"),
+#     }
+# }
+
+
 # JWT authentication settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+      'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
 
 }
 
@@ -184,5 +201,6 @@ PASSWORD_RESET_TIMEOUT=900          # 900 Sec = 15 Min
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://127.0.0.1:9000",
+    "http://127.0.0.1:8000",
 ]
