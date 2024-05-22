@@ -21,7 +21,7 @@ DEBUG = True
 
 # csrf trusted origin added
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000', 'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://volunteer-coordination-platform.onrender.com', 'https://*.127.0.0.1']
 
 
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'VolunteerVision.urls'
 
 #cors origin added
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000']
+CSRF_TRUSTED_ORIGINS = ['https://volunteer-coordination-platform.onrender.com']
 
 
 
